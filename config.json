@@ -1,0 +1,6 @@
+{
+    "API_KEY": "YOUR_API_KEY",
+    "COUNTRY_CODE": "+1",
+    "FROM_NUMBER": "YOUR_TELNYX_NUMBER",
+    "TOKEN_LENGTH": 32
+}

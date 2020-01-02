@@ -1,5 +1,6 @@
 const telnyx = require("telnyx")("YOUR_API_KEY")
 const moment = require('moment');
+const config = require('./config.json');
 const express = require('express');
 const expressNunjucks = require('express-nunjucks');
 
@@ -45,12 +46,12 @@ app.post('/request', (_req, res) => {
                         .replace('-','').replace('.','')
                         .replace('(','').replace(')','')
                         .replace(' ','')
-    let generated_token = get_random_token_hex(process.env.TOKEN_LENGTH)
+    let generated_token = get_random_token_hex(config.TOKEN_LENGTH)
     TokenStorage.add_token(generated_token, phone_number)
 
     telnyx.Message.create({
-     "to": process.env.COUNTRY_CODE+phone_number,
-     "from":process.env.FROM_NUMBER,
+     "to": `${config.COUNTRY_CODE}+phone_number`,
+     "from": `${config.FROM_NUMBER}`,
      "text": "Your Token is "+ generated_token
     })
 
