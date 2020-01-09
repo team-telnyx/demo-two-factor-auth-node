@@ -31,7 +31,7 @@ class TokenStorage{
     }
 
     static clear_token(token){
-        delete TokenStorage.tokens.token
+        delete TokenStorage.tokens[token]
     }
 }
 
